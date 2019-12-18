@@ -67,8 +67,8 @@ p
 a 
 	text-decoration: none !important
 	transition: .3s
-	&:hover
-		opacity: .8 
+	&:hover 
+		color: $color-black-3 !important
 
 .container
 	@media (min-width: 1200px)
@@ -87,7 +87,6 @@ a
 
 .merriweather 
 	font-family: 'Merriweather', serif
-	padding-bottom: 20px
 	color: $color-gray
 .montserrat
 	font-family: 'Montserrat', sans-serif
@@ -150,9 +149,15 @@ a
 	resize: none
 	text-align: center
 	height: 52px
+	&:focus
+		border-color: $color-gray !important
+		box-shadow: 0 0 0 0.2rem rgba(82,88,93,.5) !important
 
 .navbar 
 	transition: $transition
+	.navbar-toggler 
+		border: 0 !important
+		padding: 0 !important
 	.navbar-nav
 		li 
 			margin: 0 6px
@@ -194,18 +199,30 @@ a
 		width: 10px
 		text-align: center
 		margin-bottom: 92px
+		@media (max-width: 575.98px)
+			margin-bottom: 40px
 		span 
 			display: block
 			height: 10px
 			border-radius: 100px
+			background-color: #d0d0d0
+			animation: color-point 3s infinite
 			&:nth-child(1)
-				background-color: rgba(208, 208, 208, .33)
+				animation-delay: 0s
 			&:nth-child(2)
-				background-color: rgba(208, 208, 208, .66)
+				animation-delay: 1s
 			&:nth-child(3)
-				background-color: rgba(208, 208, 208, 1)
+				animation-delay: 2s
 			+ span 
 				margin-top: 12px
+
+@keyframes color-point
+	33.33% 
+		opacity: .33
+	66.66% 
+		opacity: .66
+	100%
+		opacity: 1
 
 .section-1 
 	color: #fff
@@ -219,6 +236,8 @@ a
 	max-width: 800px
 	margin: auto
 	position: relative
+	@media (max-width: 575.98px)
+		padding: 70px 0 250px
 	&:before 
 		content: ''
 		position: absolute
@@ -229,18 +248,14 @@ a
 		width: 4px
 		background-color: #fff
 	.entry 
-		padding: 20px 60px 20px 20px
-		text-align: right	
-		@media (max-width: 575.98px)
-			padding: 20px 20px 20px 0
 		.year
+			margin-bottom: 12px
+			position: relative
 			font-size: 48px
 			@media (max-width: 1199.98px)
 				font-size: 30px
 			@media (max-width: 575.98px)
 				font-size: 24px
-			margin-bottom: 12px
-			position: relative
 			&:before 
 				content: ''
 				position: absolute
@@ -250,29 +265,46 @@ a
 				background-color: $color-black-3
 				border-radius: 100%
 				top: 50%
-				transform: translateY(-50%)
-				right: -87px
 				z-index: 1000
 				@media (max-width: 575.98px)
-					right: -47px
-		&.entry-r
-			padding: 20px 20px 20px 60px
-			text-align: left
-			@media (max-width: 575.98px)
-				padding: 20px 0 20px 20px
-			.year 
-				&:before 
-					left: -87px
-					@media (max-width: 575.98px)
-						left: -47px
+					width: 5px
+					height: 5px
 		.big
 			&:before 
 				width: 46px
 				height: 46px
-				transform: translate(12px,-50%)
+				@media (max-width: 575.98px)
+					width: 10px
+					height: 10px
 		.year-text
 			color: $color-gray-2
 			font-size: 15px
+	> .row 
+		&:nth-child(even)
+			text-align: right
+			.entry
+				padding: 20px 60px 20px 20px
+				@media (max-width: 575.98px)
+					padding: 20px 0 
+				.year 
+					&:before 
+						right: -75px
+						transform: translate(50%, -50%)
+						@media (max-width: 575.98px)
+							right: -15px
+		&:nth-child(odd)
+			justify-content: flex-end
+			text-align: left
+			.entry
+				padding: 20px 20px 20px 60px
+				@media (max-width: 575.98px)
+					padding: 20px 0 
+				.year 
+					&:before 
+						left: -75px
+						transform: translate(-50%, -50%)
+						@media (max-width: 575.98px)
+							left: -15px
 
 .section-2
 	padding: 80px 0 200px
@@ -290,6 +322,7 @@ a
 	background-image: url(../img/bg-2.png)
 	background-repeat: no-repeat
 	background-position: center 540px
+	// clip-path: polygon(0 15%, 100% 0, 100% 86%, 0% 100%)
 	@media (max-width: 767.98px)
 		background-position: center 1268px
 	.row-1 
@@ -304,7 +337,7 @@ a
 		width: 100%
 		height: 200px
 		background: $color-black-3
-		transform: scale(1.1) rotate(-6deg)
+		transform: skewY(-6deg)
 		z-index: -2
 	&:after
 		content: ''
@@ -314,7 +347,7 @@ a
 		width: 100%
 		height: 200px
 		background: $color-black-3
-		transform: scale(1.1) rotate(-6deg)
+		transform: skewY(-6deg)
 		z-index: -2
 
 .section-4 
@@ -325,6 +358,8 @@ a
 		color: $color-black
 		min-width: 14px
 		font-size: 21px
+		&:hover 
+			color: $color-gray !important
 
 .footer 
 	padding: 150px 0 30px
