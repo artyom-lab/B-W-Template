@@ -199,6 +199,7 @@ a
 		width: 10px
 		text-align: center
 		margin-bottom: 92px
+		cursor: pointer
 		@media (max-width: 575.98px)
 			margin-bottom: 40px
 		span 
@@ -206,23 +207,23 @@ a
 			height: 10px
 			border-radius: 100px
 			background-color: #d0d0d0
-			animation: color-point 3s infinite
+			animation: color-point 1.4s infinite both
 			&:nth-child(1)
 				animation-delay: 0s
 			&:nth-child(2)
-				animation-delay: 1s
+				animation-delay: .2s
 			&:nth-child(3)
-				animation-delay: 2s
+				animation-delay: .4s
 			+ span 
 				margin-top: 12px
 
 @keyframes color-point
-	33.33% 
+	0%
 		opacity: .33
-	66.66% 
-		opacity: .66
-	100%
+	20%
 		opacity: 1
+	100%
+		opacity: .33
 
 .section-1 
 	color: #fff
@@ -307,7 +308,7 @@ a
 							left: -15px
 
 .section-2
-	padding: 80px 0 200px
+	padding: 50px 0 200px
 	img 
 		filter: grayscale(1)
 	.fab 
@@ -337,7 +338,7 @@ a
 		width: 100%
 		height: 200px
 		background: $color-black-3
-		transform: skewY(-6deg)
+		transform: skewY(-5deg)
 		z-index: -2
 	&:after
 		content: ''

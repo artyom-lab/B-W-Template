@@ -13,11 +13,18 @@ $(document).ready(function () {
   });
   headerSticky();
 
-  Waves.attach('.btn', ['waves-light']);
+  Waves.attach('.btn', ['']);
   Waves.init();
 
   AOS.init({
   duration: 1200,
   });
 
+  $('#icon-scroll').on('click', function () {
+      $('html, body').animate({
+        scrollTop: $('.section-1').offset().top
+      }, 500);
+    });
+
 });
+
